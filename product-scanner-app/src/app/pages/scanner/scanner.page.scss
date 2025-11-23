@@ -1,0 +1,117 @@
+.scanner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.scanner-icon {
+  margin: 40px 0 20px;
+
+  ion-icon {
+    font-size: 120px;
+    color: var(--ion-color-primary);
+  }
+}
+
+h1 {
+  margin: 20px 0 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.description {
+  color: var(--ion-color-medium);
+  margin-bottom: 30px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+ion-button {
+  margin: 10px 0;
+  --border-radius: 12px;
+}
+
+.info-section {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.product-result {
+  width: 100%;
+  margin-top: 20px;
+
+  .product-info {
+    margin-bottom: 16px;
+
+    p {
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    .price {
+      font-size: 18px;
+      color: var(--ion-color-success);
+      margin: 12px 0;
+    }
+
+    .stock-available,
+    .stock-unavailable {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      ion-icon {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .barcode-details {
+    ion-list {
+      background: transparent;
+    }
+
+    ion-item {
+      --padding-start: 8px;
+
+      ion-label {
+        p {
+          font-size: 12px;
+          color: var(--ion-color-medium);
+          margin-bottom: 4px;
+        }
+
+        h3 {
+          font-size: 14px;
+          font-family: "Courier New", monospace;
+          font-weight: 600;
+          color: var(--ion-color-dark);
+        }
+      }
+    }
+  }
+}
+
+.features-section {
+  width: 100%;
+  margin-top: 40px;
+  text-align: left;
+
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding-left: 16px;
+  }
+
+  ion-list {
+    background: transparent;
+  }
+
+  ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+  }
+}

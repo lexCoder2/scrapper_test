@@ -1,0 +1,684 @@
+{
+  "productId": "4335",
+  "productName": "Crayón Escolar Redondo Estándar Caja con 24 Colores Vividel",
+  "brand": "Vividel",
+  "brandId": 2000202,
+  "brandImageUrl": null,
+  "linkText": "crayon-escolar-redondo-estandar-caja-con-24-colores-vividel-2009",
+  "productReference": "08330011",
+  "productReferenceCode": "08330011",
+  "categoryId": "299144",
+  "productTitle": "Crayón Escolar Redondo Estándar Caja con 24 Colores Vividel",
+  "metaTagDescription": "Crayón Escolar Redondo Estándar Caja con 24 Colores Vividel 2009",
+  "releaseDate": "2019-10-08T18:49:00Z",
+  "clusterHighlights": {},
+  "productClusters": {
+    "193": "Descuentos exclusivos",
+    "216": "Exclusivo TONY"
+  },
+  "searchableClusters": {
+    "216": "Exclusivo TONY"
+  },
+  "categories": [
+    "/Escolar/Dibujo/Crayones/",
+    "/Escolar/Dibujo/",
+    "/Escolar/"
+  ],
+  "categoriesIds": [
+    "/300001/299014/299144/",
+    "/300001/299014/",
+    "/300001/"
+  ],
+  "link": "https://www.tony.com.mx/crayon-escolar-redondo-estandar-caja-con-24-colores-vividel-2009/p",
+  "Cantidad": [
+    "24 Pzas."
+  ],
+  "Tipo de Crayón": [
+    "Escolar"
+  ],
+  "Forma de Crayón": [
+    "Redondo"
+  ],
+  "Familia de Productos": [
+    "Crayones"
+  ],
+  "Variantes Tony": [
+    "Cantidad",
+    "Tipo de Crayón",
+    "Forma de Crayón",
+    "Familia de Productos"
+  ],
+  "allSpecifications": [
+    "Cantidad",
+    "Tipo de Crayón",
+    "Forma de Crayón",
+    "Familia de Productos"
+  ],
+  "allSpecificationsGroups": [
+    "Variantes Tony"
+  ],
+  "description": "Crayón Escolar Redondo Estándar Cja C/24 Colores Vividel 2009",
+  "items": [
+    {
+      "itemId": "4334",
+      "name": "Crayón Escolar Redondo Estándar Caja con 24 Colores Vividel",
+      "nameComplete": "Crayón Escolar Redondo Estándar Caja con 24 Colores Vividel",
+      "complementName": "Crayón Escolar Redondo Estándar Caja con 24 Colores Vividel",
+      "ean": "17501147457615",
+      "referenceId": [
+        {
+          "Key": "RefId",
+          "Value": "08330011"
+        }
+      ],
+      "measurementUnit": "un",
+      "unitMultiplier": 1.0,
+      "modalType": null,
+      "isKit": false,
+      "images": [
+        {
+          "imageId": "281715",
+          "imageLabel": "0",
+          "imageTag": "<img src=\"~/arquivos/ids/281715-#width#-#height#/08330011.jpg?v=638556551828500000\" width=\"#width#\" height=\"#height#\" alt=\"08330011\" id=\"\" />",
+          "imageUrl": "https://tonypapelerias.vteximg.com.br/arquivos/ids/281715/08330011.jpg?v=638556551828500000",
+          "imageText": "08330011",
+          "imageLastModified": "2024-07-04T01:59:42.8500000Z"
+        }
+      ],
+      "sellers": [
+        {
+          "sellerId": "1",
+          "sellerName": "Tony Super Papelerías",
+          "addToCartLink": "https://www.tony.com.mx/checkout/cart/add?sku=4334&qty=1&seller=1&sc=1&price=3360&cv=_&sc=1",
+          "sellerDefault": true,
+          "commertialOffer": {
+            "DeliverySlaSamplesPerRegion": {
+              "0": {
+                "DeliverySlaPerTypes": [],
+                "Region": null
+              }
+            },
+            "Installments": [
+              {
+                "Value": 33.6,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 33.6,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "American Express",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "American Express à vista"
+              },
+              {
+                "Value": 33.6,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 33.6,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Visa",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "Visa à vista"
+              },
+              {
+                "Value": 33.6,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 33.6,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Mastercard",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "Mastercard à vista"
+              },
+              {
+                "Value": 33.6,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 33.6,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Visa Electron",
+                "PaymentSystemGroupName": "debitCardPaymentGroup",
+                "Name": "Visa Electron à vista"
+              },
+              {
+                "Value": 33.6,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 33.6,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Maestro",
+                "PaymentSystemGroupName": "debitCardPaymentGroup",
+                "Name": "Maestro à vista"
+              },
+              {
+                "Value": 33.6,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 33.6,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Mastercard Debit",
+                "PaymentSystemGroupName": "debitCardPaymentGroup",
+                "Name": "Mastercard Debit à vista"
+              },
+              {
+                "Value": 33.6,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 33.6,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "MercadoPagoWallet",
+                "PaymentSystemGroupName": "MercadoPagoWalletPaymentGroup",
+                "Name": "MercadoPagoWallet à vista"
+              },
+              {
+                "Value": 33.6,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 33.6,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "MercadoPagoOff",
+                "PaymentSystemGroupName": "MercadoPagoOffPaymentGroup",
+                "Name": "MercadoPagoOff à vista"
+              },
+              {
+                "Value": 33.6,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 33.6,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "KUESKI",
+                "PaymentSystemGroupName": "custom203PaymentGroupPaymentGroup",
+                "Name": "KUESKI à vista"
+              },
+              {
+                "Value": 33.6,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 33.6,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Mercado Credito",
+                "PaymentSystemGroupName": "MercadoCreditoPaymentGroup",
+                "Name": "Mercado Credito à vista"
+              },
+              {
+                "Value": 33.6,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 33.6,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Creditea",
+                "PaymentSystemGroupName": "CrediteaPaymentGroup",
+                "Name": "Creditea à vista"
+              }
+            ],
+            "DiscountHighLight": [],
+            "GiftSkuIds": [],
+            "Teasers": [],
+            "PromotionTeasers": [],
+            "BuyTogether": [],
+            "ItemMetadataAttachment": [],
+            "Price": 33.6,
+            "ListPrice": 33.6,
+            "PriceWithoutDiscount": 33.6,
+            "FullSellingPrice": 33.6,
+            "PriceToken": "eyJhbGciOiJFUzI1NiIsImtpZCI6IjBhYWI4MzBlLWYwNTQtNDAwMS04N2MyLTFkZDUyNmYzNzA0NyIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InByaWNlIjozMzYwLCJzZWxsZXIiOiIxIiwiaWQiOiI0MzM0IiwiYWNjb3VudE5hbWUiOiJ0b255cGFwZWxlcmlhcyIsInNhbGVzQ2hhbm5lbCI6IjEifSwiZXhwIjoxNzYzNjAxNDczLCJpYXQiOjE3NjM1OTk2NzMsImp0aSI6Ijk2NjY2ZWI2LWZlMDktNDgzYS05MzFhLWZmM2E5M2RjNTIzMiIsImlzcyI6InNlc3Npb24vZGF0YS1zaWduZXIifQ.k8xefC3GcKKBKhBhRZUMHXdnqUrrJnw7th2f7lBXpDh-pJa2tAHJO_ygX3bvrwszXLOjqhyQazK6OOpVHhRQLQ",
+            "RewardValue": 0.0,
+            "PriceValidUntil": "2026-11-19T00:00:00Z",
+            "AvailableQuantity": 99999,
+            "IsAvailable": true,
+            "Tax": 0.0,
+            "DeliverySlaSamples": [
+              {
+                "DeliverySlaPerTypes": [],
+                "Region": null
+              }
+            ],
+            "GetInfoErrorMessage": null,
+            "CacheVersionUsedToCallCheckout": "_",
+            "PaymentOptions": {
+              "installmentOptions": [
+                {
+                  "paymentSystem": "1",
+                  "bin": null,
+                  "paymentName": "American Express",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 3360,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 3360,
+                      "total": 3360,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "TONYPAPELERIAS",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 3360,
+                          "total": 3360
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "2",
+                  "bin": null,
+                  "paymentName": "Visa",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 3360,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 3360,
+                      "total": 3360,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "TONYPAPELERIAS",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 3360,
+                          "total": 3360
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "4",
+                  "bin": null,
+                  "paymentName": "Mastercard",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 3360,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 3360,
+                      "total": 3360,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "TONYPAPELERIAS",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 3360,
+                          "total": 3360
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "10",
+                  "bin": null,
+                  "paymentName": "Visa Electron",
+                  "paymentGroupName": "debitCardPaymentGroup",
+                  "value": 3360,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 3360,
+                      "total": 3360,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "TONYPAPELERIAS",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 3360,
+                          "total": 3360
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "39",
+                  "bin": null,
+                  "paymentName": "Maestro",
+                  "paymentGroupName": "debitCardPaymentGroup",
+                  "value": 3360,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 3360,
+                      "total": 3360,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "TONYPAPELERIAS",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 3360,
+                          "total": 3360
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "65",
+                  "bin": null,
+                  "paymentName": "Mastercard Debit",
+                  "paymentGroupName": "debitCardPaymentGroup",
+                  "value": 3360,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 3360,
+                      "total": 3360,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "TONYPAPELERIAS",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 3360,
+                          "total": 3360
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "126",
+                  "bin": null,
+                  "paymentName": "MercadoPagoWallet",
+                  "paymentGroupName": "MercadoPagoWalletPaymentGroup",
+                  "value": 3360,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 3360,
+                      "total": 3360,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "TONYPAPELERIAS",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 3360,
+                          "total": 3360
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "156",
+                  "bin": null,
+                  "paymentName": "MercadoPagoOff",
+                  "paymentGroupName": "MercadoPagoOffPaymentGroup",
+                  "value": 3360,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 3360,
+                      "total": 3360,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "TONYPAPELERIAS",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 3360,
+                          "total": 3360
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "203",
+                  "bin": null,
+                  "paymentName": "KUESKI",
+                  "paymentGroupName": "custom203PaymentGroupPaymentGroup",
+                  "value": 3360,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 3360,
+                      "total": 3360,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "TONYPAPELERIAS",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 3360,
+                          "total": 3360
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "708",
+                  "bin": null,
+                  "paymentName": "Mercado Credito",
+                  "paymentGroupName": "MercadoCreditoPaymentGroup",
+                  "value": 3360,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 3360,
+                      "total": 3360,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "TONYPAPELERIAS",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 3360,
+                          "total": 3360
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "893",
+                  "bin": null,
+                  "paymentName": "Creditea",
+                  "paymentGroupName": "CrediteaPaymentGroup",
+                  "value": 3360,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 3360,
+                      "total": 3360,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "TONYPAPELERIAS",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 3360,
+                          "total": 3360
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "paymentSystems": [
+                {
+                  "id": 2,
+                  "name": "Visa",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "2",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-26T13:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 4,
+                  "name": "Mastercard",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "4",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-26T13:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 10,
+                  "name": "Visa Electron",
+                  "groupName": "debitCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "10",
+                  "template": "debitCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-26T13:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 65,
+                  "name": "Mastercard Debit",
+                  "groupName": "debitCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "65",
+                  "template": "debitCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-26T13:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 39,
+                  "name": "Maestro",
+                  "groupName": "debitCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "39",
+                  "template": "debitCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-26T13:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 1,
+                  "name": "American Express",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "1",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-26T13:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 203,
+                  "name": "KUESKI",
+                  "groupName": "custom203PaymentGroupPaymentGroup",
+                  "validator": null,
+                  "stringId": "203",
+                  "template": "custom203PaymentGroupPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": true,
+                  "description": "Método de pago con KueskiPay",
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-22T13:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 893,
+                  "name": "Creditea",
+                  "groupName": "CrediteaPaymentGroup",
+                  "validator": null,
+                  "stringId": "893",
+                  "template": "CrediteaPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-26T13:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 156,
+                  "name": "MercadoPagoOff",
+                  "groupName": "MercadoPagoOffPaymentGroup",
+                  "validator": null,
+                  "stringId": "156",
+                  "template": "MercadoPagoOffPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-26T13:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 126,
+                  "name": "MercadoPagoWallet",
+                  "groupName": "MercadoPagoWalletPaymentGroup",
+                  "validator": null,
+                  "stringId": "126",
+                  "template": "MercadoPagoWalletPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-26T13:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 708,
+                  "name": "Mercado Credito",
+                  "groupName": "MercadoCreditoPaymentGroup",
+                  "validator": null,
+                  "stringId": "708",
+                  "template": "MercadoCreditoPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-26T13:00:00Z",
+                  "availablePayments": null
+                }
+              ],
+              "payments": [],
+              "giftCards": [],
+              "giftCardMessages": [],
+              "availableAccounts": [],
+              "availableTokens": []
+            }
+          }
+        }
+      ],
+      "Videos": [],
+      "estimatedDateArrival": "2019-10-08T18:49:00Z"
+    }
+  ]
+}

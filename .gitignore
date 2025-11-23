@@ -1,0 +1,42 @@
+# Environment variables
+.env
+
+# Docker volumes
+db_storage/
+n8n_storage/
+redis_storage/
+
+# n8n local files
+.n8n/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# debug files
+scraper_debug*
+
+# Simple Scanner App
+# Ignore downloaded product images and local certs/keys
+/simple-scanner-app/product_images/
+/simple-scanner-app/cert.pem
+/simple-scanner-app/key.pem
+/simple-scanner-app/node_modules/
+
+# product-scanner-app
+/product-scanner-app/node_modules/
+/product-scanner-app/.angular/
+/product-scanner-app/.angular/cache/
+
+/scripts/product_images/

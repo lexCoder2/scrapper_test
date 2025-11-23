@@ -1,0 +1,542 @@
+{
+  "productId": "3733641",
+  "productName": "Refresco Coca Cola Sin Azúcar 1.35L",
+  "brand": "Coca-Cola",
+  "brandId": 1439,
+  "brandImageUrl": null,
+  "linkText": "refresco-coca-cola-sin-azucar-135l-3733641",
+  "productReference": "3733641",
+  "productReferenceCode": "3733641",
+  "categoryId": "11501",
+  "productTitle": "Refresco Coca Cola Sin Azúcar 1.35L | Chedraui",
+  "metaTagDescription": "Prepara tu despensa en unos cuantos clics y descubre nuestra gran variedad de productos. ¡No salgas de casa, nosotros te llevamos el súper!",
+  "releaseDate": "2025-06-26T00:00:00Z",
+  "clusterHighlights": {},
+  "productClusters": {},
+  "searchableClusters": {},
+  "categories": [
+    "/Supermercado/Bebidas/Refrescos/",
+    "/Supermercado/Bebidas/",
+    "/Supermercado/"
+  ],
+  "categoriesIds": [
+    "/1/115/11501/",
+    "/1/115/",
+    "/1/"
+  ],
+  "link": "https://www.chedraui.com.mx/refresco-coca-cola-sin-azucar-135l-3733641/p",
+  "Contenido del empaque": [
+    "1 pieza de 1.35L"
+  ],
+  "Dietas especiales": [
+    "Sin Azúcar"
+  ],
+  "Fraud Check": [
+    "FALSO"
+  ],
+  "Benefits 3": [
+    "Tómala bien fría y siente el sabor."
+  ],
+  "Máximo de venta": [
+    "24"
+  ],
+  "MultiEan": [
+    "7501055374755"
+  ],
+  "Atributos de Especificación": [
+    "Contenido del empaque",
+    "Dietas especiales",
+    "Fraud Check",
+    "Benefits 3",
+    "Máximo de venta",
+    "MultiEan"
+  ],
+  "allSpecifications": [
+    "Contenido del empaque",
+    "Dietas especiales",
+    "Fraud Check",
+    "Benefits 3",
+    "Máximo de venta",
+    "MultiEan"
+  ],
+  "allSpecificationsGroups": [
+    "Atributos de Especificación"
+  ],
+  "description": "Refresco Coca Cola Sin Azúcar 1.35L\n<div><br><b>Las imágenes del producto son únicamente de referencia, el diseños de etiquetas y el contenido (ml, L, Kg, g, piezas, etc) pueden cambiar y/o variar sin previo aviso.</b></div>",
+  "items": [
+    {
+      "itemId": "3733641",
+      "name": "Refresco Coca Cola Sin Azúcar 1.35L",
+      "nameComplete": "Refresco Coca Cola Sin Azúcar 1.35L",
+      "complementName": "",
+      "ean": "17501055374752",
+      "referenceId": [
+        {
+          "Key": "RefId",
+          "Value": "3733641"
+        }
+      ],
+      "measurementUnit": "un",
+      "unitMultiplier": 1.0,
+      "modalType": "ELECTRONICS",
+      "isKit": false,
+      "images": [
+        {
+          "imageId": "57553820",
+          "imageLabel": "7501055374755_00",
+          "imageTag": "<img src=\"~/arquivos/ids/57553820-#width#-#height#/7501055374755_00.jpg?v=638977989179170000\" width=\"#width#\" height=\"#height#\" alt=\"7501055374755_00\" id=\"\" />",
+          "imageUrl": "https://chedrauimx.vteximg.com.br/arquivos/ids/57553820/7501055374755_00.jpg?v=638977989179170000",
+          "imageText": "7501055374755_00",
+          "imageLastModified": "2025-11-03T20:35:17.9170000Z"
+        }
+      ],
+      "sellers": [
+        {
+          "sellerId": "1",
+          "sellerName": "Chedraui",
+          "addToCartLink": "https://www.chedraui.com.mx/checkout/cart/add?sku=3733641&qty=1&seller=1&sc=1&price=2550&cv=_&sc=1",
+          "sellerDefault": true,
+          "commertialOffer": {
+            "DeliverySlaSamplesPerRegion": {
+              "0": {
+                "DeliverySlaPerTypes": [],
+                "Region": null
+              }
+            },
+            "Installments": [
+              {
+                "Value": 25.5,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 25.5,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "American Express",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "American Express à vista"
+              },
+              {
+                "Value": 25.5,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 25.5,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Visa",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "Visa à vista"
+              },
+              {
+                "Value": 25.5,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 25.5,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Mastercard",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "Mastercard à vista"
+              },
+              {
+                "Value": 25.5,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 25.5,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Vale",
+                "PaymentSystemGroupName": "giftCardPaymentGroup",
+                "Name": "Vale à vista"
+              },
+              {
+                "Value": 25.5,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 25.5,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Pago contra entrega",
+                "PaymentSystemGroupName": "custom201PaymentGroupPaymentGroup",
+                "Name": "Pago contra entrega à vista"
+              },
+              {
+                "Value": 25.5,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 25.5,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Puntos BBVA",
+                "PaymentSystemGroupName": "customPrivate_501PaymentGroup",
+                "Name": "Puntos BBVA à vista"
+              },
+              {
+                "Value": 25.5,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 25.5,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Vales",
+                "PaymentSystemGroupName": "customPrivate_502PaymentGroup",
+                "Name": "Vales à vista"
+              },
+              {
+                "Value": 25.5,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 25.5,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "PayPalCheckout",
+                "PaymentSystemGroupName": "PayPalCheckoutPaymentGroup",
+                "Name": "PayPalCheckout à vista"
+              }
+            ],
+            "DiscountHighLight": [],
+            "GiftSkuIds": [],
+            "Teasers": [],
+            "PromotionTeasers": [],
+            "BuyTogether": [],
+            "ItemMetadataAttachment": [],
+            "Price": 25.5,
+            "ListPrice": 25.5,
+            "PriceWithoutDiscount": 25.5,
+            "FullSellingPrice": 25.5,
+            "PriceToken": "eyJhbGciOiJFUzI1NiIsImtpZCI6IjE0ZmRhNTM2LTJiZjctNDFkYi04NzNlLWZhZmQ4ZGJhODhhOSIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InByaWNlIjoyNTUwLCJzZWxsZXIiOiIxIiwiaWQiOiIzNzMzNjQxIiwiYWNjb3VudE5hbWUiOiJjaGVkcmF1aW14Iiwic2FsZXNDaGFubmVsIjoiMSJ9LCJleHAiOjE3NjM2MDE0NjQsImlhdCI6MTc2MzU5OTY2NCwianRpIjoiZmU0NmIzNDktNDI4Yi00YmY2LWFkYjUtOTJhZDA1MzJhMzVhIiwiaXNzIjoic2Vzc2lvbi9kYXRhLXNpZ25lciJ9.7Dztxd1CZa4KPvH99GGA0rDKKaBdNeMYLUafMdtAD5T0snP84TJFdv_ROE0ouSEWzjUcd02OHp68PX6scd5UIQ",
+            "RewardValue": 0.0,
+            "PriceValidUntil": "2026-11-20T00:39:38Z",
+            "AvailableQuantity": 99999,
+            "IsAvailable": true,
+            "Tax": 0.0,
+            "DeliverySlaSamples": [
+              {
+                "DeliverySlaPerTypes": [],
+                "Region": null
+              }
+            ],
+            "GetInfoErrorMessage": null,
+            "CacheVersionUsedToCallCheckout": "_",
+            "PaymentOptions": {
+              "installmentOptions": [
+                {
+                  "paymentSystem": "1",
+                  "bin": null,
+                  "paymentName": "American Express",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 2550,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 2550,
+                      "total": 2550,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "CHEDRAUIMX",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 2550,
+                          "total": 2550
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "2",
+                  "bin": null,
+                  "paymentName": "Visa",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 2550,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 2550,
+                      "total": 2550,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "CHEDRAUIMX",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 2550,
+                          "total": 2550
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "4",
+                  "bin": null,
+                  "paymentName": "Mastercard",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 2550,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 2550,
+                      "total": 2550,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "CHEDRAUIMX",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 2550,
+                          "total": 2550
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "16",
+                  "bin": null,
+                  "paymentName": "Vale",
+                  "paymentGroupName": "giftCardPaymentGroup",
+                  "value": 2550,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 2550,
+                      "total": 2550,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "CHEDRAUIMX",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 2550,
+                          "total": 2550
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "201",
+                  "bin": null,
+                  "paymentName": "Pago contra entrega",
+                  "paymentGroupName": "custom201PaymentGroupPaymentGroup",
+                  "value": 2550,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 2550,
+                      "total": 2550,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "CHEDRAUIMX",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 2550,
+                          "total": 2550
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "501",
+                  "bin": null,
+                  "paymentName": "Puntos BBVA",
+                  "paymentGroupName": "customPrivate_501PaymentGroup",
+                  "value": 2550,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 2550,
+                      "total": 2550,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "CHEDRAUIMX",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 2550,
+                          "total": 2550
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "502",
+                  "bin": null,
+                  "paymentName": "Vales",
+                  "paymentGroupName": "customPrivate_502PaymentGroup",
+                  "value": 2550,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 2550,
+                      "total": 2550,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "CHEDRAUIMX",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 2550,
+                          "total": 2550
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "742",
+                  "bin": null,
+                  "paymentName": "PayPalCheckout",
+                  "paymentGroupName": "PayPalCheckoutPaymentGroup",
+                  "value": 2550,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 2550,
+                      "total": 2550,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "CHEDRAUIMX",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 2550,
+                          "total": 2550
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "paymentSystems": [
+                {
+                  "id": 4,
+                  "name": "Mastercard",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "4",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-27T00:33:04.9435865Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 16,
+                  "name": "Vale",
+                  "groupName": "giftCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "16",
+                  "template": "giftCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-27T00:33:04.9435868Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 2,
+                  "name": "Visa",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "2",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-27T00:33:04.943587Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 1,
+                  "name": "American Express",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "1",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-27T00:33:04.9435872Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 742,
+                  "name": "PayPalCheckout",
+                  "groupName": "PayPalCheckoutPaymentGroup",
+                  "validator": null,
+                  "stringId": "742",
+                  "template": "PayPalCheckoutPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-27T00:33:04.9435873Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 501,
+                  "name": "Puntos BBVA",
+                  "groupName": "customPrivate_501PaymentGroup",
+                  "validator": null,
+                  "stringId": "501",
+                  "template": "customPrivate_501PaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": true,
+                  "description": "Puntos BBVA",
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-30T00:34:04.9435874Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 502,
+                  "name": "Vales",
+                  "groupName": "customPrivate_502PaymentGroup",
+                  "validator": null,
+                  "stringId": "502",
+                  "template": "customPrivate_502PaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": true,
+                  "description": "Vales",
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-30T00:34:04.9435875Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 201,
+                  "name": "Pago contra entrega",
+                  "groupName": "custom201PaymentGroupPaymentGroup",
+                  "validator": null,
+                  "stringId": "201",
+                  "template": "custom201PaymentGroupPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": true,
+                  "description": "Pagar al recibir el pedido",
+                  "requiresAuthentication": false,
+                  "dueDate": "2025-11-27T00:34:04.9435878Z",
+                  "availablePayments": null
+                }
+              ],
+              "payments": [],
+              "giftCards": [],
+              "giftCardMessages": [],
+              "availableAccounts": [],
+              "availableTokens": []
+            }
+          }
+        }
+      ],
+      "Videos": [],
+      "estimatedDateArrival": null
+    }
+  ]
+}

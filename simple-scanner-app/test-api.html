@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Connection Test</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      .container {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      }
+      h1 {
+        color: #667eea;
+        margin-top: 0;
+      }
+      .test-button {
+        background: #667eea;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 10px 5px;
+      }
+      .test-button:hover {
+        background: #5568d3;
+      }
+      .result {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 8px;
+        font-family: monospace;
+      }
+      .success {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+      .error {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+      .info {
+        background: #d1ecf1;
+        color: #0c5460;
+        border: 1px solid #bee5eb;
+      }
+      pre {
+        background: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🔌 API Connection Test</h1>
+
+      <div>
+        <button class="test-button" onclick="testLocalhost()">
+          Test Localhost
+        </button>
+        <button class="test-button" onclick="testLAN()">Test LAN IP</button>
+        <button class="test-button" onclick="testStats()">Get Stats</button>
+        <button class="test-button" onclick="testProducts()">
+          Load Products
+        </button>
+      </div>
+
+      <div id="results"></div>
+    </div>
+
+    <script>
+      const LOCALHOST_API = "http://localhost:3000/api";
+      const LAN_API = "http://192.168.6.98:3000/api";
+
+      function showResult(message, type = "info") {
+        const div = document.createElement("div");
+        div.className = `result ${type}`;
+        div.innerHTML = message;
+        document.getElementById("results").appendChild(div);
+      }
+
+      function clearResults() {
+        document.getElementById("results").innerHTML = "";
+      }
+
+      async function testLocalhost() {
+        clearResults();
+        showResult("🔄 Testing localhost API...", "info");
+
+        try {
+          const response = await fetch(`${LOCALHOST_API}/products/all`);
+          if (response.ok) {
+            const products = await response.json();
+            showResult(
+              `✅ Localhost API Working!<br>` +
+                `Products: ${products.length}<br>` +
+                `URL: ${LOCALHOST_API}/products/all`,
+              "success"
+            );
+          } else {
+            showResult(
+              `❌ API Error: ${response.status} ${response.statusText}`,
+              "error"
+            );
+          }
+        } catch (error) {
+          showResult(`❌ Connection Error: ${error.message}`, "error");
+        }
+      }
+
+      async function testLAN() {
+        clearResults();
+        showResult("🔄 Testing LAN IP API...", "info");
+
+        try {
+          const response = await fetch(`${LAN_API}/products/all`);
+          if (response.ok) {
+            const products = await response.json();
+            showResult(
+              `✅ LAN API Working!<br>` +
+                `Products: ${products.length}<br>` +
+                `URL: ${LAN_API}/products/all<br>` +
+                `📱 Accessible from other devices on your network!`,
+              "success"
+            );
+          } else {
+            showResult(
+              `❌ API Error: ${response.status} ${response.statusText}`,
+              "error"
+            );
+          }
+        } catch (error) {
+          showResult(`❌ Connection Error: ${error.message}`, "error");
+        }
+      }
+
+      async function testStats() {
+        clearResults();
+        const apiUrl =
+          window.location.hostname === "localhost" ? LOCALHOST_API : LAN_API;
+        showResult(`🔄 Fetching stats from ${apiUrl}...`, "info");
+
+        try {
+          const response = await fetch(`${apiUrl}/stats`);
+          if (response.ok) {
+            const stats = await response.json();
+            showResult(
+              `✅ Stats Retrieved!<br><pre>${JSON.stringify(
+                stats,
+                null,
+                2
+              )}</pre>`,
+              "success"
+            );
+          } else {
+            showResult(
+              `❌ API Error: ${response.status} ${response.statusText}`,
+              "error"
+            );
+          }
+        } catch (error) {
+          showResult(`❌ Connection Error: ${error.message}`, "error");
+        }
+      }
+
+      async function testProducts() {
+        clearResults();
+        const apiUrl =
+          window.location.hostname === "localhost" ? LOCALHOST_API : LAN_API;
+        showResult(`🔄 Loading all products from ${apiUrl}...`, "info");
+
+        try {
+          const startTime = Date.now();
+          const response = await fetch(`${apiUrl}/products/all`);
+
+          if (response.ok) {
+            const products = await response.json();
+            const loadTime = ((Date.now() - startTime) / 1000).toFixed(2);
+
+            const stores = [...new Set(products.map((p) => p.store))];
+            const brands = [...new Set(products.map((p) => p.brand))].length;
+            const categories = [...new Set(products.map((p) => p.category))]
+              .length;
+
+            showResult(
+              `✅ Products Loaded Successfully!<br><br>` +
+                `📊 Total Products: ${products.length}<br>` +
+                `🏪 Stores (${stores.length}): ${stores.join(", ")}<br>` +
+                `🏷️ Brands: ${brands}<br>` +
+                `📂 Categories: ${categories}<br>` +
+                `⏱️ Load Time: ${loadTime}s<br><br>` +
+                `Sample product:<br>` +
+                `<pre>${JSON.stringify(products[0], null, 2)}</pre>`,
+              "success"
+            );
+          } else {
+            showResult(
+              `❌ API Error: ${response.status} ${response.statusText}`,
+              "error"
+            );
+          }
+        } catch (error) {
+          showResult(`❌ Connection Error: ${error.message}`, "error");
+        }
+      }
+
+      // Auto-test on load
+      window.addEventListener("load", () => {
+        showResult(
+          `🌐 Current hostname: ${window.location.hostname}<br>` +
+            `📡 API will use: ${
+              window.location.hostname === "localhost" ? LOCALHOST_API : LAN_API
+            }`,
+          "info"
+        );
+      });
+    </script>
+  </body>
+</html>

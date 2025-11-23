@@ -1,0 +1,52 @@
+# node_modules
+/node_modules
+npm-debug.log
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Build outputs
+/www
+/dist
+/platforms
+/plugins
+
+# Native projects (regenerate with capacitor)
+/android/.gradle
+/android/app/build
+/android/build
+/android/local.properties
+/ios/App/Pods
+/ios/App/Podfile.lock
+/ios/App/build
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Testing
+/coverage
+.nyc_output
+
+# Temporary files
+*.tmp
+*.bak
+
+# Angular build/cache
+# The Angular CLI stores build cache under the .angular folder
+.angular/
+.angular/cache/
+

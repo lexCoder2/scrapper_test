@@ -1,0 +1,213 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Product Scanner</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="scanner-container">
+    <div class="scanner-icon">
+      <ion-icon name="scan-outline" size="large"></ion-icon>
+    </div>
+
+    <h1>Scan Product Barcode</h1>
+    <p class="description">
+      Point your camera at a product barcode or QR code to identify it instantly
+    </p>
+
+    <ion-button
+      expand="block"
+      (click)="startScan()"
+      [disabled]="isScanning"
+      color="primary"
+      size="large"
+    >
+      <ion-icon slot="start" name="camera-outline"></ion-icon>
+      {{ isScanning ? 'Scanning...' : 'Start Scanning' }}
+    </ion-button>
+
+    <ion-button
+      expand="block"
+      fill="outline"
+      (click)="goToSearch()"
+      size="large"
+    >
+      <ion-icon slot="start" name="search-outline"></ion-icon>
+      Search Manually
+    </ion-button>
+
+    <div class="info-section" *ngIf="lastScannedCode">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Last Scanned Code</ion-card-subtitle>
+          <ion-card-title>{{ lastScannedCode }}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+
+    <!-- Product Result Card -->
+    <div class="product-result" *ngIf="scannedProduct">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>{{ scannedProduct.store }}</ion-card-subtitle>
+          <ion-card-title>{{ scannedProduct.name }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <div class="product-info">
+            <p><strong>Brand:</strong> {{ scannedProduct.brand }}</p>
+            <p><strong>Category:</strong> {{ scannedProduct.category }}</p>
+            <p class="price">
+              <strong>Price:</strong> {{ scannedProduct.currency }} ${{
+              scannedProduct.price.toFixed(2) }}
+            </p>
+            <p
+              *ngIf="scannedProduct.available; else outOfStock"
+              class="stock-available"
+            >
+              <ion-icon name="checkmark-circle" color="success"></ion-icon>
+              <strong>Available</strong> (Stock: {{ scannedProduct.stock ||
+              'N/A' }})
+            </p>
+            <ng-template #outOfStock>
+              <p class="stock-unavailable">
+                <ion-icon name="close-circle" color="danger"></ion-icon>
+                <strong>Out of Stock</strong>
+              </p>
+            </ng-template>
+          </div>
+
+          <!-- Barcode Information -->
+          <ion-accordion-group>
+            <ion-accordion value="barcodes">
+              <ion-item slot="header" color="light">
+                <ion-label>Barcode Information</ion-label>
+              </ion-item>
+              <div class="ion-padding barcode-details" slot="content">
+                <ion-list>
+                  <ion-item *ngIf="scannedProduct.sku">
+                    <ion-label>
+                      <p>SKU</p>
+                      <h3>{{ scannedProduct.sku }}</h3>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="scannedProduct.ean13">
+                    <ion-label>
+                      <p>EAN-13</p>
+                      <h3>{{ scannedProduct.ean13 }}</h3>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="scannedProduct.upc">
+                    <ion-label>
+                      <p>UPC</p>
+                      <h3>{{ scannedProduct.upc }}</h3>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="scannedProduct.ean">
+                    <ion-label>
+                      <p>EAN (Item)</p>
+                      <h3>{{ scannedProduct.ean }}</h3>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="scannedProduct.multi_ean">
+                    <ion-label>
+                      <p>Multi EAN</p>
+                      <h3>{{ scannedProduct.multi_ean }}</h3>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="scannedProduct.art_ean">
+                    <ion-label>
+                      <p>Article EAN</p>
+                      <h3>{{ scannedProduct.art_ean }}</h3>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="scannedProduct.item_ean">
+                    <ion-label>
+                      <p>Item EAN</p>
+                      <h3>{{ scannedProduct.item_ean }}</h3>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="scannedProduct.product_reference">
+                    <ion-label>
+                      <p>Product Reference</p>
+                      <h3>{{ scannedProduct.product_reference }}</h3>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item *ngIf="scannedProduct.reference">
+                    <ion-label>
+                      <p>Reference</p>
+                      <h3>{{ scannedProduct.reference }}</h3>
+                    </ion-label>
+                  </ion-item>
+                </ion-list>
+              </div>
+            </ion-accordion>
+          </ion-accordion-group>
+
+          <ion-button
+            expand="block"
+            [href]="scannedProduct.product_url"
+            target="_blank"
+            *ngIf="scannedProduct.product_url"
+          >
+            <ion-icon slot="start" name="open-outline"></ion-icon>
+            View in Store
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div class="features-section">
+      <h3>Features</h3>
+      <ion-list>
+        <ion-item>
+          <ion-icon
+            name="checkmark-circle"
+            slot="start"
+            color="success"
+          ></ion-icon>
+          <ion-label>
+            <h2>Instant Recognition</h2>
+            <p>Identify products in seconds</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon
+            name="checkmark-circle"
+            slot="start"
+            color="success"
+          ></ion-icon>
+          <ion-label>
+            <h2>Offline Access</h2>
+            <p>Works without internet connection</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon
+            name="checkmark-circle"
+            slot="start"
+            color="success"
+          ></ion-icon>
+          <ion-label>
+            <h2>Price Comparison</h2>
+            <p>Compare prices across stores</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon
+            name="checkmark-circle"
+            slot="start"
+            color="success"
+          ></ion-icon>
+          <ion-label>
+            <h2>Product Details</h2>
+            <p>View complete product information</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

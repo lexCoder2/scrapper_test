@@ -1,0 +1,25 @@
+{
+  "note": "dulceriasdenny.com does NOT have a public API",
+  "scraping_method": "Would require HTML parsing with BeautifulSoup",
+  "difficulty": "High - dynamic content, no API endpoints found",
+  "url": "https://dulceriasdenny.com/productos",
+  "example_structure": {
+    "id": "estimated_from_url_or_page",
+    "name": "Product name from page title/heading",
+    "brand": "Brand from product details or categories",
+    "category": "From breadcrumb or product classification",
+    "price": "Scraped from price display",
+    "price_wholesale": "May have wholesale pricing",
+    "sku": "If available in product details",
+    "image_url": "From product image src",
+    "description": "From product description section",
+    "available": "Based on stock status or add to cart button",
+    "store": "Dulcerias Denny"
+  },
+  "recommendation": "This store requires complex HTML scraping and is not recommended for automated data collection. Consider focusing on stores with public APIs like Shopify or VTEX platforms.",
+  "alternative_stores": [
+    "mdulces.mx (Shopify API available)",
+    "dulcesbalu.mx (Shopify API available)",
+    "Other Shopify-based Mexican candy stores"
+  ]
+}

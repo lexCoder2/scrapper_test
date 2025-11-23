@@ -1,0 +1,237 @@
+{
+  "name": "Mexico Grocery Products Scraper",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "start-node",
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "url": "=https://www.soriana.com/api/catalog_system/pub/products/search",
+        "authentication": "none",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "_from",
+                "value": "={{ $node[\"Loop Over Pages\"].json[\"page\"] * 50 }}"
+              },
+              {
+                "name": "_to",
+                "value": "={{ ($node[\"Loop Over Pages\"].json[\"page\"] + 1) * 50 - 1 }}"
+              },
+              {
+                "name": "O",
+                "value": "OrderByTopSaleDESC"
+              }
+            ]
+          }
+        }
+      },
+      "id": "http-soriana",
+      "name": "Fetch Soriana Products",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "multiplex",
+        "options": {}
+      },
+      "id": "merge-products",
+      "name": "Merge All Products",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "sku",
+              "name": "sku",
+              "value": "={{ $json.productId }}",
+              "type": "string"
+            },
+            {
+              "id": "name",
+              "name": "name",
+              "value": "={{ $json.productName }}",
+              "type": "string"
+            },
+            {
+              "id": "brand",
+              "name": "brand",
+              "value": "={{ $json.brand }}",
+              "type": "string"
+            },
+            {
+              "id": "category",
+              "name": "category",
+              "value": "={{ $json.categories[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "price",
+              "name": "price",
+              "value": "={{ $json.items[0]?.sellers[0]?.commertialOffer?.Price }}",
+              "type": "number"
+            },
+            {
+              "id": "list_price",
+              "name": "list_price",
+              "value": "={{ $json.items[0]?.sellers[0]?.commertialOffer?.ListPrice }}",
+              "type": "number"
+            },
+            {
+              "id": "available",
+              "name": "available",
+              "value": "={{ $json.items[0]?.sellers[0]?.commertialOffer?.AvailableQuantity > 0 }}",
+              "type": "boolean"
+            },
+            {
+              "id": "image",
+              "name": "image",
+              "value": "={{ $json.items[0]?.images[0]?.imageUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "url",
+              "name": "url",
+              "value": "={{ $json.link }}",
+              "type": "string"
+            },
+            {
+              "id": "store",
+              "name": "store",
+              "value": "Soriana",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "format-data",
+      "name": "Format Product Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "mode": "each",
+        "options": {
+          "fileName": "mexico_grocery_products_{{ $now.format('yyyy-MM-dd_HHmmss') }}.json"
+        }
+      },
+      "id": "save-json",
+      "name": "Save to JSON",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [1450, 300]
+    },
+    {
+      "parameters": {
+        "loopOver": "numbers",
+        "rangeStart": 0,
+        "rangeEnd": 20,
+        "rangeStep": 1
+      },
+      "id": "loop-pages",
+      "name": "Loop Over Pages",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "seconds"
+      },
+      "id": "wait",
+      "name": "Wait (Rate Limit)",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [1050, 300]
+    }
+  ],
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Pages": {
+      "main": [
+        [
+          {
+            "node": "Fetch Soriana Products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Soriana Products": {
+      "main": [
+        [
+          {
+            "node": "Format Product Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Product Data": {
+      "main": [
+        [
+          {
+            "node": "Wait (Rate Limit)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait (Rate Limit)": {
+      "main": [
+        [
+          {
+            "node": "Merge All Products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge All Products": {
+      "main": [
+        [
+          {
+            "node": "Save to JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

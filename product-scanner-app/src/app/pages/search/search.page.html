@@ -1,0 +1,90 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Search Products</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar
+      [(ngModel)]="searchQuery"
+      (ionInput)="onSearchChange($event)"
+      (ionClear)="clearSearch()"
+      placeholder="Search by name, brand, SKU..."
+      [debounce]="300"
+    >
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="search-container">
+    <div *ngIf="!searchQuery && searchResults.length === 0" class="empty-state">
+      <ion-icon name="search-outline" size="large"></ion-icon>
+      <h2>Search Products</h2>
+      <p>Enter a product name, brand, or SKU to search</p>
+    </div>
+
+    <div *ngIf="isSearching" class="loading-state">
+      <ion-spinner></ion-spinner>
+      <p>Searching...</p>
+    </div>
+
+    <div
+      *ngIf="searchQuery && searchResults.length === 0 && !isSearching"
+      class="no-results"
+    >
+      <ion-icon name="sad-outline" size="large"></ion-icon>
+      <h2>No Results</h2>
+      <p>No products found for "{{ searchQuery }}"</p>
+    </div>
+
+    <ion-list *ngIf="searchResults.length > 0">
+      <ion-item-sliding *ngFor="let product of searchResults">
+        <ion-item button (click)="viewProduct(product)">
+          <ion-thumbnail slot="start">
+            <img
+              [src]="product.image_url || 'assets/img/placeholder.png'"
+              [alt]="product.name"
+              onerror="this.src='assets/img/placeholder.png'"
+            />
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{ product.name }}</h2>
+            <h3>{{ product.brand }}</h3>
+            <p>{{ product.store }} | {{ product.category }}</p>
+            <p class="price">
+              <span class="current-price"
+                >{{ product.price |
+                currency:product.currency:'symbol-narrow':'1.2-2' }}</span
+              >
+              <span
+                *ngIf="product.list_price && product.list_price > product.price"
+                class="original-price"
+              >
+                {{ product.list_price |
+                currency:product.currency:'symbol-narrow':'1.2-2' }}
+              </span>
+              <ion-badge
+                *ngIf="product.discount_percentage && product.discount_percentage > 0"
+                color="danger"
+              >
+                -{{ product.discount_percentage }}%
+              </ion-badge>
+            </p>
+          </ion-label>
+          <ion-chip
+            slot="end"
+            [color]="product.available ? 'success' : 'danger'"
+          >
+            {{ product.available ? 'Available' : 'Out of Stock' }}
+          </ion-chip>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+
+    <div *ngIf="searchResults.length > 0" class="results-count">
+      <p>Found {{ searchResults.length }} product(s)</p>
+    </div>
+  </div>
+</ion-content>
