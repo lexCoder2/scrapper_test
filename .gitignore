@@ -29,6 +29,7 @@ scraper_debug*
 
 # Simple Scanner App
 # Ignore downloaded product images and local certs/keys
+/product_images/
 /simple-scanner-app/product_images/
 /simple-scanner-app/cert.pem
 /simple-scanner-app/key.pem

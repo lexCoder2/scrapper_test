@@ -11,7 +11,20 @@ import random
 import os
 import sys
 from urllib.parse import urlparse
+import base64
 from pymongo import MongoClient, UpdateOne
+from pathlib import Path
+
+# Load environment variables from .env file in project root
+try:
+    from dotenv import load_dotenv
+    # Get the project root (parent of scripts directory)
+    project_root = Path(__file__).parent.parent
+    env_path = project_root / '.env'
+    load_dotenv(dotenv_path=env_path)
+except ImportError:
+    # python-dotenv not installed, will use system environment variables only
+    pass
 
 class TeeOutput:
     """Write to both console and file"""
@@ -45,6 +58,8 @@ class MultiStoreScraper:
         }
         self.images_dir = 'product_images'
         os.makedirs(self.images_dir, exist_ok=True)
+        self.placeholder = os.path.join(self.images_dir, 'placeholder.png')
+        self._ensure_placeholder()
         
         # MongoDB connection
         self.mongodb_uri = mongodb_uri
@@ -95,41 +110,65 @@ class MultiStoreScraper:
     
     def download_image(self, image_url, sku):
         """Download product image"""
-        if not self.save_images or not image_url:
-            return ''
-        
+        # Always return a local path. If saving images is disabled or download fails,
+        # return the placeholder image path so we don't store remote URLs.
         try:
+            if not image_url:
+                return self.placeholder
+
             if image_url.startswith('//'):
                 image_url = 'https:' + image_url
-            
+
             ext = os.path.splitext(urlparse(image_url).path)[1] or '.jpg'
             filename = f"{sku}{ext}"
             filepath = os.path.join(self.images_dir, filename)
-            
-            if not os.path.exists(filepath):
-                response = requests.get(image_url, headers=self.headers, timeout=5, stream=True)
-                if response.status_code == 200:
-                    with open(filepath, 'wb') as f:
-                        for chunk in response.iter_content(chunk_size=8192):
-                            f.write(chunk)
-                    return filepath
-            else:
+
+            # Check if image already exists locally (even if save_images is disabled)
+            if os.path.exists(filepath):
                 return filepath
+
+            # If save_images is disabled, don't download new images
+            if not self.save_images:
+                return self.placeholder
+
+            response = requests.get(image_url, headers=self.headers, timeout=5, stream=True)
+            if response.status_code == 200:
+                with open(filepath, 'wb') as f:
+                    for chunk in response.iter_content(chunk_size=8192):
+                        f.write(chunk)
+                return filepath
+
         except Exception:
             pass
-        return ''
+
+        return self.placeholder
+
+    def _ensure_placeholder(self):
+        """Create a tiny 1x1 PNG placeholder if it doesn't exist."""
+        try:
+            if os.path.exists(self.placeholder):
+                return
+            # 1x1 PNG (transparent)
+            png_b64 = (
+                'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAA'
+            )
+            with open(self.placeholder, 'wb') as ph:
+                ph.write(base64.b64decode(png_b64))
+        except Exception:
+            # If placeholder creation fails, ensure at least the images_dir exists.
+            os.makedirs(self.images_dir, exist_ok=True)
     
-    def is_unique_product(self, sku):
+    def is_unique_product(self, ean):
         """Check if product is unique (not in memory or DB)"""
-        if sku in self.seen_skus:
+        if not ean or ean in self.seen_skus:
             return False
         
         if self.collection is not None:
-            existing = self.collection.find_one({'sku': sku})
+            existing = self.collection.find_one({'ean': ean})
             if existing:
                 return False
         
-        self.seen_skus.add(sku)
+        self.seen_skus.add(ean)
         return True
     
     def save_product(self, product):
@@ -139,7 +178,7 @@ class MultiStoreScraper:
         if self.collection is not None:
             try:
                 self.collection.update_one(
-                    {'sku': product['sku']},
+                    {'ean': product['ean']},
                     {'$set': product},
                     upsert=True
                 )
@@ -172,7 +211,7 @@ class MultiStoreScraper:
         ]
         
         for category_id in category_ids:
-            for page in range(100):  # Increased pages to get all products
+            for page in range(3000):  # Increased pages to get all products
                     
                 try:
                     url = f"https://www.chedraui.com.mx/api/catalog_system/pub/products/search"
@@ -194,8 +233,6 @@ class MultiStoreScraper:
                     
                     for item in data:
                         sku = str(item.get('productId', ''))
-                        if not self.is_unique_product(sku):
-                            continue
                         
                         items = item.get('items', [])
                         first_item = items[0] if items else {}
@@ -206,27 +243,31 @@ class MultiStoreScraper:
                         ref_code = reference_id[0].get('Value', '') if reference_id else ''
                         multi_ean = item.get('MultiEan', [''])[0] if item.get('MultiEan') else ''
                         
+                        # Determine EAN13 and UPC
+                        if api_ean and len(str(api_ean)) == 13:
+                            ean13 = str(api_ean)
+                            upc = self.generate_upc(sku)
+                        elif api_ean and len(str(api_ean)) == 12:
+                            upc = str(api_ean)
+                            ean13 = '0' + str(api_ean)
+                        else:
+                            ean13 = self.generate_ean13(sku)
+                            upc = self.generate_upc(sku)
+                        
+                        # Use EAN13 as the primary identifier
+                        if not self.is_unique_product(ean13):
+                            continue
+                        
                         # Store all codes
                         codes = {
                             'sku': sku,
-                            'ean': str(api_ean) if api_ean else '',
+                            'ean': ean13,
                             'multi_ean': str(multi_ean) if multi_ean else '',
-                            'upc': '',
-                            'ean13': '',
+                            'upc': upc,
+                            'ean13': ean13,
                             'reference': str(ref_code) if ref_code else '',
                             'product_id': str(item.get('productId', ''))
                         }
-                        
-                        # Determine EAN13 and UPC
-                        if api_ean and len(str(api_ean)) == 13:
-                            codes['ean13'] = str(api_ean)
-                            codes['upc'] = self.generate_upc(sku)
-                        elif api_ean and len(str(api_ean)) == 12:
-                            codes['upc'] = str(api_ean)
-                            codes['ean13'] = '0' + str(api_ean)
-                        else:
-                            codes['ean13'] = self.generate_ean13(sku)
-                            codes['upc'] = self.generate_upc(sku)
                         
                         commercial_offer = {}
                         if items:
@@ -243,10 +284,8 @@ class MultiStoreScraper:
                             if images:
                                 image_url = images[0].get('imageUrl', '')
                         
-                        # Try to download image, fall back to URL if it fails
-                        local_image = ''
-                        if self.save_images and image_url:
-                            local_image = self.download_image(image_url, sku)
+                        # Always resolve to a local path (real image or placeholder)
+                        local_image = self.download_image(image_url, codes['ean'])
                         
                         product = {
                             'sku': sku,
@@ -264,8 +303,8 @@ class MultiStoreScraper:
                             'currency': 'MXN',
                             'available': commercial_offer.get('IsAvailable', True),
                             'stock': commercial_offer.get('AvailableQuantity', 100),
-                            'image_url': image_url,
-                            'local_image': local_image if local_image else image_url,
+                            'image_url': '',
+                            'local_image': local_image,
                             'product_url': f"https://www.chedraui.com.mx{item.get('link', '')}",
                             'store': 'Chedraui',
                             'description': item.get('description', ''),
@@ -277,7 +316,7 @@ class MultiStoreScraper:
                         if store_count % 100 == 0:
                             print(f"\rChedraui: {store_count} products", end='', flush=True)
                     
-                    time.sleep(random.uniform(0.3, 0.8))
+                    time.sleep(random.uniform(0.4, 0.9))
                     
                 except Exception as e:
                     continue
@@ -333,8 +372,6 @@ class MultiStoreScraper:
                     
                     for item in data:
                         sku = str(item.get('productId', ''))
-                        if not self.is_unique_product(sku):
-                            continue
                         
                         items = item.get('items', [])
                         first_item = items[0] if items else {}
@@ -346,6 +383,10 @@ class MultiStoreScraper:
                         else:
                             ean13 = self.generate_ean13(sku)
                             upc = self.generate_upc(sku)
+                        
+                        # Use EAN13 as the primary identifier
+                        if not self.is_unique_product(ean13):
+                            continue
                         
                         commercial_offer = {}
                         if items:
@@ -360,11 +401,11 @@ class MultiStoreScraper:
                             if images:
                                 image_url = images[0].get('imageUrl', '')
                         
-                        local_image = self.download_image(image_url, sku)
+                        local_image = self.download_image(image_url, ean13)
                         
                         product = {
                             'sku': sku,
-                            'ean13': ean13,
+                            'ean': ean13,
                             'upc': upc,
                             'name': item.get('productName', ''),
                             'brand': item.get('brand', 'Sin Marca'),
@@ -374,7 +415,7 @@ class MultiStoreScraper:
                             'currency': 'MXN',
                             'available': True,
                             'stock': 100,
-                            'image_url': image_url,
+                            'image_url': '',
                             'local_image': local_image,
                             'product_url': f"https://www.soriana.com{item.get('link', '')}",
                             'store': 'Soriana',
@@ -406,7 +447,7 @@ class MultiStoreScraper:
             'congelados', 'refrigerados', 'salchichoneria', 'quesos',
             'cereales', 'enlatados', 'pastas', 'arroz', 'aceites',
             'salsas', 'condimentos', 'dulces', 'chocolates', 'galletas',
-            'cafe', 'te', 'jugos', 'refrescos', 'agua', 'vinos',
+            'cafe', 'te', 'jugos', 'refrescos', 'agua',
             'cervezas', 'licores', 'snacks', 'papas', 'semillas'
         ]
         
@@ -453,7 +494,7 @@ class MultiStoreScraper:
                     
                     for item in products_data:
                         sku = str(item.get('artCod', ''))
-                        if not sku or not self.is_unique_product(sku):
+                        if not sku:
                             continue
                         
                         # Extract all barcode fields
@@ -461,21 +502,25 @@ class MultiStoreScraper:
                         ean13 = art_ean if art_ean else self.generate_ean13(sku)
                         upc = self.generate_upc(sku)
                         
+                        # Use EAN13 as the primary identifier
+                        if not self.is_unique_product(ean13):
+                            continue
+                        
                         price = item.get('artPrven', 0)
                         list_price = item.get('artPrlin', price)
                         
                         # Build image URL
                         image_url = ''
                         if item.get('artImg') == 1:
-                            image_url = f"https://www.lacomer.com.mx/lacomer/items/images/{sku}-0.jpg"
+                            image_url = f"https://www.lacomer.com.mx/superc/img_art/{art_ean}_1.jpg"
                         
-                        local_image = self.download_image(image_url, sku)
+                        local_image = self.download_image(image_url, ean13)
                         
                         product = {
                             'sku': sku,
                             'ean13': ean13,
                             'upc': upc,
-                            'art_ean': art_ean,
+                            'ean': art_ean,
                             'art_cod': sku,
                             'name': item.get('artDes', '').strip(),
                             'brand': item.get('marDes', 'Sin Marca').strip(),
@@ -486,7 +531,7 @@ class MultiStoreScraper:
                             'currency': 'MXN',
                             'available': float(item.get('inveCant', 0)) > 0,
                             'stock': int(float(item.get('inveCant', 0))),
-                            'image_url': image_url,
+                            'image_url': '',
                             'local_image': local_image,
                             'product_url': f"https://www.lacomer.com.mx/lacomer/#!/item/{sku}",
                             'store': 'La Comer',
@@ -632,7 +677,7 @@ class MultiStoreScraper:
                     page_products = 0
                     for item in data:
                         product_id = str(item.get('productId', ''))
-                        if not product_id or not self.is_unique_product(product_id):
+                        if not product_id:
                             continue
                         
                         # Get all barcode fields from items
@@ -647,6 +692,10 @@ class MultiStoreScraper:
                         else:
                             ean13 = self.generate_ean13(product_id)
                             upc = self.generate_upc(product_id)
+                        
+                        # Use EAN13 as the primary identifier
+                        if not self.is_unique_product(ean13):
+                            continue
                         
                         # Get reference codes
                         product_reference = str(item.get('productReference', '')) if item.get('productReference') else ''
@@ -673,7 +722,7 @@ class MultiStoreScraper:
                             if images:
                                 image_url = images[0].get('imageUrl', '')
                         
-                        local_image = self.download_image(image_url, product_id)
+                        local_image = self.download_image(image_url, ean13)
                         
                         # Get category from item
                         categories = item.get('categories', [])
@@ -681,7 +730,7 @@ class MultiStoreScraper:
                         
                         product = {
                             'sku': product_id,
-                            'ean13': ean13,
+                            'ean': ean13 or item_ean,
                             'upc': upc,
                             'item_ean': item_ean,
                             'product_reference': product_reference,
@@ -694,7 +743,7 @@ class MultiStoreScraper:
                             'currency': 'MXN',
                             'available': available,
                             'stock': int(stock),
-                            'image_url': image_url,
+                            'image_url': '',
                             'local_image': local_image,
                             'product_url': f"https://www.tony.com.mx{item.get('link', '')}",
                             'store': 'Papelerias Tony',
@@ -747,9 +796,18 @@ class MultiStoreScraper:
 
 if __name__ == "__main__":
     # Configuration
-    mongodb_uri = "mongodb://admin:productdb2025@localhost:27017/products?authSource=admin"
-    save_images = True  # Download images during scraping
+    # Read MongoDB URI from environment if present (fallback to None)
+    mongodb_uri = os.environ.get('MONGODB_URI') or None
+    
+    # Check SAVE_IMAGES environment variable (defaults to True)
+    # Set SAVE_IMAGES=false or SAVE_IMAGES=0 to disable image downloading
+    save_images_env = os.environ.get('SAVE_IMAGES', 'true').lower()
+    save_images = save_images_env not in ['false', '0', 'no', 'off']
+    
     debug_raw = False  # Print raw source data from first product per store
+    
+    print(f"[Config] MongoDB URI: {'configured' if mongodb_uri else 'not set'}")
+    print(f"[Config] Save images: {save_images}")
     
     scraper = MultiStoreScraper(mongodb_uri=mongodb_uri, save_images=save_images, debug_raw=debug_raw)
     products = scraper.run()
